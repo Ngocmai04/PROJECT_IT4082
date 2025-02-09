@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apartment List</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/Home/style.css">
+
+  <!-- Font -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+  <!-- Icon -->
+  <script src="https://kit.fontawesome.com/82fa5b87b9.js" crossorigin="anonymous"></script>
+
+  <!-- Include jQuery and DataTables CSS and JS -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.2.1/css/dataTables.dataTables.css" />
+  <script src="https://cdn.datatables.net/2.2.1/js/dataTables.js"></script>
+
+  <!-- DataTables Editor CSS -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/editor/2.0.0/css/dataTables.editor.min.css">
+
+  <!-- DataTables Editor JS -->
+  <script src="https://cdn.datatables.net/editor/2.0.0/js/dataTables.editor.min.js"></script>
+
+</head>
+
+<body>
+
+  <input type="checkbox" id="check">
+
+  <label for="check">
+    <i class="fas fa-bars" id="btn"></i>
+    <i class="fas fa-times" id="cancel"></i>
+  </label>
+
+  <div class="sidebar">
+    <header>Dashboard</header>
+    <ul>
+      <li><a href="/Home/home.html"><i class="fa-solid fa-house" style="color: #ffffff;"></i></i>Home</a></li>
+      <li><a href="#"><i class="fa-solid fa-building" style="color: #ffffff;"></i>Apartments</a></li>
+      <li><a href="#"><i class="fa-solid fa-people-group" style="color: #ffffff;"></i>Citizens</a></li>
+      <li><a href="#"><i class="fa-solid fa-car" style="color: #ffffff;"></i>Vehicles</a></li>
+      <li><a href="#"><i class="fa-solid fa-clock-rotate-left" style="color: #ffffff;"></i>Log</a></li>
+      <li><a href="#"><i class="fas fa-sliders-h"></i>Services</a></li>
+      <li><a href="#"><i class="far fa-envelope"></i>Contact</a></li>
+    </ul>
+  </div>
+
+  <section>
+    <div class="section-content">
+      <!-- Form to Add New Apartment -->
+      <h3>Add New Apartment</h3>
+      <form id="addApartmentForm">
+        <label for="apartmentId">Căn hộ:</label>
+        <input type="text" id="apartmentId" required><br><br>
+
+        <label for="numRooms">Số phòng ngủ:</label>
+        <input type="number" id="numRooms" required><br><br>
+
+        <label for="numWC">Số WC:</label>
+        <input type="number" id="numWC" required><br><br>
+
+        <label for="numLogia">Số logia:</label>
+        <input type="number" id="numLogia" required><br><br>
+
+        <label for="area">Diện tích:</label>
+        <input type="number" id="area" required><br><br>
+
+        <button type="submit">Add Apartment</button>
+      </form>
+      <h2>Apartment List</h2>
+
+      <table id="apartmentTable" class="display" border="1">
+        <thead>
+          <tr>
+            <th>Căn hộ</th>
+            <th>Số phòng ngủ</th>
+            <th>Số WC</th>
+            <th>Số logia</th>
+            <th>Diện tích</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <!-- Data will be inserted here -->
+        </tbody>
+      </table>
+
+    </div>
+  </section>
+  <script>
+    $(document).ready(function () {
+      // Initialize the Editor
+      var editor = new $.fn.dataTable.Editor({
+        ajax: 'http://localhost:3000/api/apartments', // The API to get/save data
+        table: '#apartmentTable', // The table you want to use Editor on
+        fields: [{
+          label: 'Căn hộ:',
+          name: 'căn_hộ'
+        },
+        {
+          label: 'Số phòng ngủ:',
+          name: 'so_phong_ngu'
+        },
+        {
+          label: 'Số WC:',
+          name: 'so_wc'
+        },
+        {
+          label: 'Số logia:',
+          name: 'so_logia'
+        },
+        {
+          label: 'Diện tích:',
+          name: 'dien_tich'
+        }
+        ]
+      });
+
+      // Initialize DataTable with Editor
+      var table = $('#apartmentTable').DataTable({
+        ajax: {
+          url: 'http://localhost:3000/api/apartments', // Your API endpoint for fetching data
+          dataSrc: 'data' // The key where the actual data is located
+        },
+        columns: [{
+          data: 'căn_hộ'
+        },
+        {
+          data: 'so_phong_ngu'
+        },
+        {
+          data: 'so_wc'
+        },
+        {
+          data: 'so_logia'
+        },
+        {
+          data: 'dien_tich'
+        },
+        {
+          data: null,
+          render: function (data, type, row) {
+            return `<button class="edit-btn">Edit</button>
+                    <button class="delete-btn" data-id="${row.căn_hộ}">Delete</button>`;
+          }
+        }
+        ],
+        select: true // Enable row selection
+      });
+
+      // Add/edit functionality with DataTables Editor
+      $('#apartmentTable').on('click', '.edit-btn', function () {
+        var row = table.row($(this).closest('tr'));
+        editor.edit(row.index());
+      });
+
+      // Delete functionality
+      $('#apartmentTable').on('click', '.delete-btn', function () {
+        const apartmentId = $(this).data('id');
+        if (confirm(`Are you sure you want to delete apartment: ${apartmentId}?`)) {
+          // Send DELETE request to backend API
+          fetch(`http://localhost:3000/api/apartments/${encodeURIComponent(apartmentId)}`, {
+            method: 'DELETE'
+          })
+            .then(response => {
+              if (response.ok) {
+                alert('Apartment deleted successfully');
+                table.ajax.reload(); // Reload table after deletion
+              } else {
+                alert('Failed to delete the apartment');
+              }
+            })
+            .catch(error => {
+              console.error('Error deleting apartment:', error);
+              alert('An error occurred while deleting the apartment');
+            });
+        }
+      });
+
+      // Add new row functionality (button or other input)
+      $('#addRow').on('click', function () {
+        editor.create();
+      });
+    });
+  </script>
+
+</body>
+
+</html>

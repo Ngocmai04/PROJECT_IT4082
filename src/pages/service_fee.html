@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Service Fees</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/src/styles/style.css">
+
+    <!-- Font -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <!-- Icon -->
+    <script src="https://kit.fontawesome.com/82fa5b87b9.js" crossorigin="anonymous"></script>
+
+    <!-- jQuery (required for DataTables) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.2.1/css/dataTables.dataTables.css" />
+
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/2.2.1/js/dataTables.js"></script>
+</head>
+
+<body>
+
+    <input type="checkbox" id="check">
+
+    <label for="check">
+        <i class="fas fa-bars" id="btn"></i>
+        <i class="fas fa-times" id="cancel"></i>
+    </label>
+
+    <div class="sidebar">
+        <header>Dashboard</header>
+        <ul>
+            <li><a href="/src/index.html"><i class="fa-solid fa-house" style="color: #ffffff;"></i></i>Home</a></li>
+            <li><a href="/src/pages/apartments.html"><i class="fa-solid fa-building"
+                        style="color: #ffffff;"></i>Apartments</a></li>
+            <li><a href="/src/pages/residents.html"><i class="fa-solid fa-people-group"
+                        style="color: #ffffff;"></i>Residents</a></li>
+            <li><a href="/src/pages/vehicles.html"><i class="fa-solid fa-car" style="color: #ffffff;"></i>Vehicles</a>
+            </li>
+            <li><a href="/src/pages/log.html"><i class="fa-solid fa-clock-rotate-left"
+                        style="color: #ffffff;"></i>Log</a></li>
+            <li><a href="#"><i class="fas fa-sliders-h"></i>Services</a></li>
+            <li><a href="#"><i class="far fa-envelope"></i>Contact</a></li>
+        </ul>
+    </div>
+
+    <section>
+
+        <!-- Adding Form -->
+        <div id="add-single-service-fee-form" class="form">
+            <div class="form-content">
+                <div class="form-header">
+                    <span id="add-single-service-fee-closeForm" class="closeForm">&times;</span>
+                    <h3>Add Single Service Fee</h3>
+                </div>
+
+                <div>
+                    <label class="form-label" for="add-service-fee-apartment-id">Apartment:</label>
+                    <input class="form-input" type="text" id="add-service-fee-apartment-id" required><br>
+                </div>
+
+                <div>
+                    <button id="add-single-service-fee-submitForm" class="submitForm">Submit</button>
+                    <button id="add-single-service-fee-cancelForm" class="cancelForm">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Editing Form -->
+        <div id="edit-service-fee-form" class="form">
+            <div class="form-content">
+                <div class="form-header">
+                    <span id="edit-service-fee-closeForm" class="closeForm">&times;</span>
+                    <h3>Edit Service Fee</h3>
+                </div>
+
+                <div>
+                    <label class="form-label" for="edit-service-fee-id">ID:</label>
+                    <input class="form-input" type="text" id="edit-service-fee-id" required><br>
+                </div>
+
+                <div>
+                    <label class="form-label" for="edit-service-fee-apartment-id">Apartment:</label>
+                    <input class="form-input" type="text" id="edit-service-fee-apartment-id" required><br>
+                </div>
+
+                <div>
+                    <label class="form-label" for="edit-service-fee-time">Time Period:</label>
+                    <input class="form-input" type="date" id="edit-service-fee-time" required><br>
+                </div>
+
+                <div>
+                    <label class="form-label" for="edit-service-fee-electric">Electricity Usage:</label>
+                    <input class="form-input" type="number" id="edit-service-fee-electric" required><br>
+                </div>
+
+                <div>
+                    <label class="form-label" for="edit-service-fee-water">Water Usage:</label>
+                    <input class="form-input" type="number" id="edit-service-fee-water" required><br>
+                </div>
+
+                <div>
+                    <label class="form-label" for="edit-service-fee-clean">Cleaning Fee:</label>
+                    <input class="form-input" type="number" id="edit-service-fee-clean" required><br>
+                </div>
+
+                <div>
+                    <label class="form-label" for="edit-service-fee-parking">Parking Fee:</label>
+                    <input class="form-input" type="number" id="edit-service-fee-parking" required><br>
+                </div>
+
+                <div>
+                    <label class="form-label" for="edit-service-fee-status">Status:</label>
+                    <select id="edit-service-fee-status" class="form-select" required>
+                        <option value="pending">Pending</option>
+                        <option value="paid">Paid</option>
+                    </select><br>
+                </div>
+
+                <div>
+                    <button id="edit-service-fee-submitForm" class="submitForm">Submit</button>
+                    <button id="edit-service-fee-cancelForm" class="cancelForm">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-content">
+            <h2>Service Fees</h2>
+
+            <button id="add-single-service-fee" class="add-btn">Add Single Service Fees</button>
+
+            <button id="add-monthly-service-fee" class="add-btn">Add Monthly Service Fees</button>
+
+            <table id="service-fee-table" class="data-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Apartment</th>
+                        <th>Time Period</th>
+                        <th>Electricity Usage</th>
+                        <th>Water Usage</th>
+                        <th>Cleaning Fee</th>
+                        <th>Parking Fee</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="service-fee-table-body">
+                    <!-- Data will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer class="footer" role="contentinfo" itemscope itemtype="http://schema.org/Person">
+        <div class="footer-left" itemscope itemtype="http://schema.org/Person" class="h-card">
+            <img src="/src/images/profile.jpg" alt="Profile Picture" itemprop="image" class="u-logo logo" />
+            <h3 itemprop="name" class="p-name">Nguyen Khac Hieu</h3>
+            <p class="p-job-title" itemprop="jobTitle">Student</p>
+            <nav aria-label="Footer Navigation">
+                <p class="footer-links">
+                    <a href="/home.html" itemprop="url" class="link-1">Home</a>
+                    <a href="https://github.com/mcgee12310" itemprop="url">GitHub</a>
+                </p>
+            </nav>
+            <p class="footer-name">© 2024 Nguyen Khac Hieu</p>
+        </div>
+
+        <div class="footer-center">
+            <div itemscope itemtype="http://schema.org/PostalAddress" class="p-address">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <p>
+                    <span itemprop="streetAddress" class="p-street-address">123 This is a Street</span>,
+                    <span itemprop="addressLocality" class="p-locality">A Locality</span>,
+                    <span itemprop="addressRegion" class="p-region">Region state</span>,
+                    <span itemprop="postalCode" class="p-postal-code">12345</span>
+                </p>
+            </div>
+            <div>
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <p itemprop="telephone" class="p-tel">+1 234567890</p>
+            </div>
+            <div>
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <p><a href="mailto:myname@mail.com" itemprop="email" class="u-email">myname@mail.com</a></p>
+            </div>
+        </div>
+
+        <div class="footer-right">
+            <p class="footer-about">
+                <span>About Me</span>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore ducimus assumenda possimus?
+                Reprehenderit,
+                voluptates consequuntur. Illum tempore reiciendis incidunt velit ea non voluptates iure, corporis,
+                repudiandae
+                sequi totam dolorem iste.
+            </p>
+            <div class="footer-socials">
+                <a href="#" rel="me" aria-label="LinkedIn" itemprop="sameAs" class="u-url"><i
+                        class="fa-brands fa-linkedin"></i></a>
+                <a href="#" rel="me" aria-label="GitHub" itemprop="sameAs" class="u-url"><i
+                        class="fa-brands fa-github"></i></a>
+                <a href="#" rel="me" aria-label="Twitter" itemprop="sameAs" class="u-url"><i
+                        class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" rel="me" aria-label="Mastodon" itemprop="sameAs" class="u-url"><i
+                        class="fa-brands fa-mastodon"></i></a>
+                <a href="#" rel="me" aria-label="Threads" itemprop="sameAs" class="u-url"><i
+                        class="fa-brands fa-threads"></i></a>
+                <a href="#" rel="me" aria-label="Facebook" itemprop="sameAs" class="u-url"><i
+                        class="fa-brands fa-facebook"></i></a>
+                <a href="#" rel="me" aria-label="Instagram" itemprop="sameAs" class="u-url"><i
+                        class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/src/services/service_fee.js"></script>
+
+</body>
+
+</html>
