@@ -121,6 +121,12 @@ section header img {
   border-radius: 5px;
 }
 
+.overlay{
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
 section header .overlay {
   width: 100%;
   height: 100%;

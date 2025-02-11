@@ -171,5 +171,42 @@ BEGIN
 END $$
 
 /* Vehicle out */
+DROP PROCEDURE IF EXISTS vehicle_out $$
+
+CREATE PROCEDURE vehicle_out (IN license_plate_out VARCHAR(50))
+BEGIN
+    DECLARE apartment_id_out VARCHAR(50) DEFAULT NULL;
+    DECLARE vehicle_exists INT DEFAULT 0;
+    DECLARE current_time TIMESTAMP;
+
+    -- Set current timestamp
+    SET current_time = NOW();
+
+    -- Check if the vehicle exists
+    SELECT COUNT(*) INTO vehicle_exists FROM vehicle WHERE license_plate = license_plate_out;
+    
+    IF vehicle_exists = 0 THEN
+        -- Exit early by using SELECT instead of RETURN
+        SELECT CONCAT('Vehicle ', license_plate_out, ' is NOT in the parking lot!') AS message;
+    ELSE
+        -- Get the apartment_id of the vehicle
+        SELECT apartment_id INTO apartment_id_out FROM vehicle WHERE license_plate = license_plate_out;
+
+        -- Log the vehicle exit
+        INSERT INTO entry_exit_log (license_plate, time, direction)
+        VALUES (license_plate_out, current_time, 'out');
+
+        -- If the vehicle is a guest, delete it from the vehicle table
+        IF apartment_id_out = 'guest' THEN
+            DELETE FROM vehicle WHERE license_plate = license_plate_out;
+            SELECT CONCAT('Guest vehicle ', license_plate_out, ' has exited and been removed!') AS message;
+        ELSE
+            -- Update the status of the registered vehicle
+            UPDATE vehicle SET status = 'out' WHERE license_plate = license_plate_out;
+            SELECT CONCAT('Vehicle ', license_plate_out, ' has exited the parking lot!') AS message;
+        END IF;
+    END IF;
+
+END $$
 
 DELIMITER ;

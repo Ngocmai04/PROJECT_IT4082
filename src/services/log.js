@@ -12,8 +12,6 @@ async function fetchAndDisplayData() {
               <tr>
                     <td>${item['id']}</td>
                     <td>${item['time']}</td>
-                    <td>${item['time']}</td>
-                    <td>${item['time']}</td>
                     <td>${item['license_plate']}</td>
                     <td>${item['direction']}</td>
               </tr>
@@ -25,25 +23,13 @@ async function fetchAndDisplayData() {
         table = $('#log-table').DataTable({
             pageLength: 10,
             lengthMenu: [5, 10, 25, 50],
-            order: [[3, "desc"]], // You can modify the column index and order here
+            order: [[1, "desc"]], // You can modify the column index and order here
             searching: true,
             paging: true,
             responsive: true,
             columnDefs: [
                 {
                     targets: 1, // Cột thứ 2 (index = 1) là "time"
-                    render: function (data, type, row) {
-                        return new Date(data).toLocaleDateString(); // Chuyển đổi sang định dạng dễ đọc
-                    }
-                },
-                {
-                    targets: 2, // Cột thứ 2 (index = 1) là "time"
-                    render: function (data, type, row) {
-                        return new Date(data).toLocaleTimeString(); // Chuyển đổi sang định dạng dễ đọc
-                    }
-                },
-                {
-                    targets: 3, // Cột thứ 2 (index = 1) là "time"
                     render: function (data, type, row) {
                         return new Date(data).toLocaleString(); // Chuyển đổi sang định dạng dễ đọc
                     }
