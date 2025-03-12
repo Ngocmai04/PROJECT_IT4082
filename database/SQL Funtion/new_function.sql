@@ -209,4 +209,10 @@ BEGIN
 
 END $$
 
+BEGIN
+ALTER TABLE service_fee AUTO_INCREMENT = (
+    SELECT MAX(id) + 1 FROM service_fee
+);
+END $$
+
 DELIMITER ;

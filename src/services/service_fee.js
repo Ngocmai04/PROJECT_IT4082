@@ -126,23 +126,25 @@ $("#add-single-service-fee-submitForm").click(async function () {
 // ADD ALL
 $("#add-monthly-service-fee").click(async function () {
     // Send data to the server
-    try {
-        // Send ADD request
-        const response = await fetch("http://localhost:3000/api/service-fee-all", {
-            method: "POST",
-        });
+    if (confirm(`Are you sure you want to add monthly service fees?`)) {
+        try {
+            // Send ADD request
+            const response = await fetch("http://localhost:3000/api/service-fee-all", {
+                method: "POST",
+            });
 
-        // Check if adding successful
-        const data = await response.json(); // Get the response JSON
-        if (response.ok) {
-            alert("Succeed to add the data.");
-            location.reload(); // Reloads the current page
-        } else {
+            // Check if adding successful
+            const data = await response.json(); // Get the response JSON
+            if (response.ok) {
+                alert("Succeed to add the data.");
+                location.reload(); // Reloads the current page
+            } else {
+                alert(data.message);
+            }
+        } catch (error) {
+            console.error(error);
             alert(data.message);
         }
-    } catch (error) {
-        console.error(error);
-        alert(data.message);
     }
 });
 
