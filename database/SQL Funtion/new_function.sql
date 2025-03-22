@@ -209,7 +209,7 @@ BEGIN
 
 END $$
 
-BSELECT MAX(id) + 1 INTO @new_auto_increment FROM service_fee; 
+SELECT MAX(id) + 1 INTO @new_auto_increment FROM service_fee; 
 SET @new_auto_increment = IFNULL(@new_auto_increment, 1); -- Nếu bảng rỗng, đặt AUTO_INCREMENT = 1
 SET SESSION information_schema_stats_expiry = 0; -- Đảm bảo MySQL cập nhật giá trị mới
 SET @query = CONCAT('ALTER TABLE service_fee AUTO_INCREMENT = ', @new_auto_increment);
