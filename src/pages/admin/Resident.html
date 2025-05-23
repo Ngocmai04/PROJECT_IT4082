@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Căn hộ</title>
+  <link rel="stylesheet" href="/src/styles/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <script src="https://kit.fontawesome.com/82fa5b87b9.js" crossorigin="anonymous"></script>
+
+  <!-- jQuery (required for DataTables) -->
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+
+  <!-- DataTables CSS -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.2.1/css/dataTables.dataTables.css" />
+
+  <!-- DataTables JS -->
+  <script src="https://cdn.datatables.net/2.2.1/js/dataTables.js"></script>
+</head>
+<body>
+  <input type="checkbox" id="check">
+  <label for="check">
+    <i class="fas fa-bars" id="btn"></i>
+    <i class="fas fa-times" id="cancel"></i>
+  </label>
+
+  <div class="sidebar">
+    <header>BLUE MOON </header>
+    <ul>
+      <li><a href="/src/index.html"><i class="fa-solid fa-house" style="color: #ffffff;"></i></i>Trang chủ</a></li>
+      <li><a href="/admin/apartments.html"><i class="fa-solid fa-building" style="color: #ffffff;"></i>Căn hộ</a></li>
+      <li><a href="Resident.html"><i class="fas fa-user" style="color: #ffffff;"></i>Cư dân</a></li>
+      <li><a href="Household.html"><i class="fa-solid fa-people-group" style="color: #ffffff;"></i>Hộ gia đình</a></li>
+      <!-- <li><a href="/src/pages/vehicles.html"><i class="fa-solid fa-car" style="color: #ffffff;"></i>Vehicles</a></li> -->
+      <!-- <li><a href="/src/pages/log.html"><i class="fa-solid fa-clock-rotate-left" style="color: #ffffff;"></i>Log</a></li> -->
+      <li><a href="\Service.html"><i class="fas fa-hand-holding-usd"></i>Dịch vụ cư dân</a></li>
+      <li><a href="#"><i class="far fa-envelope"></i>Contact</a></li>
+      <li><a href="Account Management.html"><i class="fas fa-user-circle"></i>Quản lý tài khoản</a></li>
+      <li><a href="Settings.html"><i class="fas fa-cog"></i>Cài đặt </a></li>
+      <li><a href="#"><i class="fas fa-sign-out-alt"></i>Đăng xuất</a></li>
+    </ul>
+  </div>
+
+   <section>
+        <!-- Adding Form -->
+        <div id="add-resident-form" class="form">
+            <div class="form-content">
+                <div class="form-header">
+                    <span id="add-resident-closeForm" class="closeForm">&times;</span>
+                    <h3>Add New Resident</h3>
+                </div>
+
+                <div>
+                    <label class="form-label" for="resident-fullname">Full name:</label>
+                    <input class="form-input" type="text" id="resident-fullname" required><br>
+                </div>
+
+                <div>
+                    <label class="form-label" for="resident-apartment-id">Apartment:</label>
+                    <input class="form-input" type="text" id="resident-apartment-id" required><br>
+                </div>
+
+                <div>
+                    <label class="form-label" for="resident-bd">Birthday:</label>
+                    <input class="form-input" type="date" id="resident-bd" required><br>
+                </div>
+
+                <div>
+                    <label class="form-label" for="resident-phone">Phone:</label>
+                    <input class="form-input" type="text" id="resident-phone" required><br>
+                </div>
+
+                <div>
+                    <label class="form-label" for="resident-email">Email:</label>
+                    <input class="form-input" type="text" id="resident-email" required><br>
+                </div>
+
+                <div>
+                    <button id="add-resident-submitForm" class="submitForm">Submit</button>
+                    <button id="add-resident-cancelForm" class="cancelForm">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Editing Form -->
+        <div id="edit-resident-form" class="form">
+            <div class="form-content">
+                <div class="form-header">
+                    <span id="edit-resident-closeForm" class="closeForm">&times;</span>
+                    <h3>Edit Resident</h3>
+                </div>
+
+                <div>
+                    <label class="form-label" for="edit-resident-id">ID:</label>
+                    <input class="form-input" type="text" id="edit-resident-id" required><br>
+                </div>
+
+                <div>
+                    <label class="form-label" for="edit-resident-fullname">Full name:</label>
+                    <input class="form-input" type="text" id="edit-resident-fullname" required><br>
+                </div>
+
+                <div>
+                    <label class="form-label" for="edit-resident-apartment-id">Apartment:</label>
+                    <input class="form-input" type="text" id="edit-resident-apartment-id" required><br>
+                </div>
+
+                <div>
+                    <label class="form-label" for="edit-resident-bd">Birthday:</label>
+                    <input class="form-input" type="date" id="edit-resident-bd" required><br>
+                </div>
+
+                <div>
+                    <label class="form-label" for="edit-resident-phone">Phone:</label>
+                    <input class="form-input" type="text" id="edit-resident-phone" required><br>
+                </div>
+
+                <div>
+                    <label class="form-label" for="edit-resident-email">Email:</label>
+                    <input class="form-input" type="text" id="edit-resident-email" required><br>
+                </div>
+
+                <div>
+                    <button id="edit-resident-submitForm" class="submitForm">Submit</button>
+                    <button id="edit-resident-cancelForm" class="cancelForm">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-content">
+            <h2>Residents List</h2>
+
+            <button id="add-resident-btn" class="add-btn">Add Resident</button>
+
+            <table id="resident-table" class="data-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Fullname</th>
+                        <th>Apartment</th>
+                        <th>Birthday</th>
+                        <th>Phone Number</th>
+                        <th>Email</th>
+                        <th style="text-align: center;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="resident-table-body">
+                    <!-- Data will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+  <footer class="footer" role="contentinfo" itemscope itemtype="http://schema.org/Person">
+    <div class="footer-left" itemscope itemtype="http://schema.org/Person" class="h-card">
+        <img src="/src/images/profile.jpg" alt="Profile Picture" itemprop="image" class="u-logo logo" />
+        <h3 itemprop="name" class="p-name">FULL NAME </h3>
+        <p class="p-job-title" itemprop="jobTitle">Student</p>
+        <nav aria-label="Footer Navigation">
+            <p class="footer-links">
+                <a href="/src/index.html" itemprop="url" class="link-1">Home</a>
+                <a href="https://github.com/mcgee12310" itemprop="url">GitHub</a>
+            </p>
+        </nav>
+        <p class="footer-name">© 2025 FULL NAME</p>
+    </div>
+
+    <div class="footer-center">
+        <div itemscope itemtype="http://schema.org/PostalAddress" class="p-address">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <p>
+                <span itemprop="streetAddress" class="p-street-address">Street</span>,
+                <span itemprop="addressLocality" class="p-locality">Hanoi</span>,
+                <span itemprop="addressRegion" class="p-region">Vietnam</span>,
+                <span itemprop="postalCode" class="p-postal-code">000111</span>
+            </p>
+        </div>
+        <div>
+            <i class="fa fa-phone" aria-hidden="true"></i>
+            <p itemprop="telephone" class="p-tel">(+84) 9123456789</p>
+        </div>
+        <div>
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <p><a href="mailto:myname@mail.com" itemprop="email" class="u-email">hieubinbom@mail.com</a></p>
+        </div>
+    </div>
+
+    <div class="footer-right">
+        <p class="footer-about">
+            <span>About Me</span>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore ducimus assumenda possimus?
+            Reprehenderit,
+            voluptates consequuntur. Illum tempore reiciendis incidunt velit ea non voluptates iure, corporis,
+            repudiandae
+            sequi totam dolorem iste.
+        </p>
+        <div class="footer-socials">
+            <a href="#" rel="me" aria-label="LinkedIn" itemprop="sameAs" class="u-url"><i
+                    class="fa-brands fa-linkedin"></i></a>
+            <a href="#" rel="me" aria-label="GitHub" itemprop="sameAs" class="u-url"><i
+                    class="fa-brands fa-github"></i></a>
+            <a href="#" rel="me" aria-label="Twitter" itemprop="sameAs" class="u-url"><i
+                    class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" rel="me" aria-label="Mastodon" itemprop="sameAs" class="u-url"><i
+                    class="fa-brands fa-mastodon"></i></a>
+            <a href="#" rel="me" aria-label="Threads" itemprop="sameAs" class="u-url"><i
+                    class="fa-brands fa-threads"></i></a>
+            <a href="#" rel="me" aria-label="Facebook" itemprop="sameAs" class="u-url"><i
+                    class="fa-brands fa-facebook"></i></a>
+            <a href="#" rel="me" aria-label="Instagram" itemprop="sameAs" class="u-url"><i
+                    class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+  </footer>
+
+  <script src="/src/services/residents.js"></script>
+</body>
+
+</html>
