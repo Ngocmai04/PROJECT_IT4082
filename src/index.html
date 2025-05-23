@@ -1,45 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Apartments List</title>
-  <link rel="stylesheet" href="/src/styles/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-  <script src="https://kit.fontawesome.com/82fa5b87b9.js" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="/src/styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="https://kit.fontawesome.com/82fa5b87b9.js" crossorigin="anonymous"></script>
+  </head>
 
-  <!-- jQuery (required for DataTables) -->
-  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-    crossorigin="anonymous"></script>
+  <body>
 
-  <!-- DataTables CSS -->
-  <link rel="stylesheet" href="https://cdn.datatables.net/2.2.1/css/dataTables.dataTables.css" />
+    <input type="checkbox" id="check">
 
-  <!-- DataTables JS -->
-  <script src="https://cdn.datatables.net/2.2.1/js/dataTables.js"></script>
-</head>
-<body>
-  <input type="checkbox" id="check">
-  <label for="check">
-    <i class="fas fa-bars" id="btn"></i>
-    <i class="fas fa-times" id="cancel"></i>
-  </label>
+    <label for="check">
+      <i class="fas fa-bars" id="btn"></i>
+      <i class="fas fa-times" id="cancel"></i>
+    </label>
 
-  <div class="sidebar">
-    <header>BLUE MOON </header>
-       <ul>
-      <li><a href="/src/index.html"><i class="fa-solid fa-house" style="color: #ffffff;"></i></i>Trang chủ</a></li>
-      <li><a href="pages/admin/apartments.html"><i class="fa-solid fa-building" style="color: #ffffff;"></i>Căn hộ</a></li>
-      <li><a href="pages/admin/Resident.html"><i class="fas fa-user" style="color: #ffffff;"></i>Cư dân</a></li>
-      <li><a href="pages/admin/Household.html"><i class="fa-solid fa-people-group" style="color: #ffffff;"></i>Hộ gia đình</a></li>
-      <!-- <li><a href="/src/pages/vehicles.html"><i class="fa-solid fa-car" style="color: #ffffff;"></i>Vehicles</a></li> -->
-      <!-- <li><a href="/src/pages/log.html"><i class="fa-solid fa-clock-rotate-left" style="color: #ffffff;"></i>Log</a></li> -->
-      <li><a href="pages/admin/Service.html"><i class="fas fa-hand-holding-usd"></i>Dịch vụ cư dân</a></li>
-      <li><a href="#"><i class="far fa-envelope"></i>Contact</a></li>
-      <li><a href="pages/admin/Account Management.html"><i class="fas fa-user-circle"></i>Quản lý tài khoản</a></li>
-      <li><a href="pages/admin/Settings.html"><i class="fas fa-cog"></i>Cài đặt</a></li>
-      <li><a href="#"><i class="fas fa-sign-out-alt"></i>Đăng xuất</a></li>
-    </ul>
-  </div>
+    <div class="sidebar">
+      <header>Dashboard</header>
+      <ul>
+        <li><a href="#"><i class="fa-solid fa-house" style="color: #ffffff;"></i></i>Home</a></li>
+        <li><a href="/src/pages/apartments.html"><i class="fa-solid fa-building" style="color: #ffffff;"></i>Apartments</a></li>
+        <li><a href="/src/pages/residents.html"><i class="fa-solid fa-people-group" style="color: #ffffff;"></i>Residents</a></li>
+        <li><a href="/src/pages/vehicles.html"><i class="fa-solid fa-car" style="color: #ffffff;"></i>Vehicles</a></li>
+        <li><a href="/src/pages/log.html"><i class="fa-solid fa-clock-rotate-left" style="color: #ffffff;"></i>Log</a></li>
+        <li><a href="/src/pages/service_fee.html"><i class="fas fa-sliders-h"></i>Services</a></li>
+        <li><a href="#"><i class="far fa-envelope"></i>Contact</a></li>
+      </ul>
+    </div>
 
     <section>
       <header>
