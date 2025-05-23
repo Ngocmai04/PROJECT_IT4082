@@ -2,7 +2,6 @@
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
-    "ejs": "^3.1.10",
     "express": "^4.21.2",
     "mysql": "^2.18.1",
     "mysql2": "^3.14.1"
@@ -20,16 +19,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "directories": {
-    "test": "tests"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mcgee12310/Apartments-management.git"
-  },
-  "bugs": {
-    "url": "https://github.com/mcgee12310/Apartments-management/issues"
-  },
-  "homepage": "https://github.com/mcgee12310/Apartments-management#readme",
   "description": ""
 }
