@@ -1,0 +1,356 @@
+/* Base styles for the body */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    background-color: #f4f6f8; /* Light grey background */
+    display: flex;
+    min-height: 100vh; /* Full viewport height */
+    color: #333; /* Dark grey text */
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 250px;
+    background-color: #1a3a6b; /* Dark blue background */
+    color: white;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Subtle shadow */
+    display: flex;
+    flex-direction: column;
+    position: fixed; /* Fixed sidebar */
+    height: 100%; /* Full height */
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+.sidebar-header {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    margin-bottom: 5px;
+}
+
+.sidebar-menu a {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease, border-left-color 0.3s ease;
+    border-left: 5px solid transparent; /* Border for active state */
+}
+
+.sidebar-menu a:hover {
+    background-color: #2c4c7c; /* Slightly lighter blue on hover */
+}
+
+.sidebar-menu a.active {
+    background-color: #0d2c5e; /* Darker blue for active item */
+    border-left-color: #4CAF50; /* Green highlight for active */
+}
+
+.sidebar-menu a i {
+    margin-right: 15px;
+    font-size: 20px;
+}
+
+/* Main content area */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 250px; /* Offset to make space for the fixed sidebar */
+    background-color: #f4f6f8;
+    width: calc(100% - 250px); /* Adjust width for sidebar */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Header for the main content section */
+.header {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #1a3a6b;
+}
+
+/* Styling for content boxes */
+.section-box {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Soft shadow */
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+/* Form group styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+/* Select dropdown styling */
+.select-apartment {
+    width: 300px; /* Fixed width for desktop */
+    max-width: 100%; /* Ensure it doesn't overflow on small screens */
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: #f8f8f8;
+    appearance: none; /* Remove default browser arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* Custom arrow using SVG */
+    background-image: url('https://cdn.luatvietnam.vn/uploaded/Images/Original/2022/12/24/tieu-chuan-thiet-ke-chung-cu-1_2412192939.jpg');
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 12px auto;
+    cursor: pointer;
+}
+
+/* Tab navigation styling */
+.tab-navigation {
+    display: flex;
+    flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.tab-button {
+    background-color: transparent;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    display: flex;
+    align-items: center;
+    margin-right: 15px; /* Spacing between buttons */
+    margin-bottom: 10px; /* For wrapping on smaller screens */
+}
+
+.tab-button i {
+    margin-right: 8px;
+}
+
+.tab-button.active {
+    color: #1a3a6b;
+    border-bottom: 3px solid #1a3a6b;
+    font-weight: 600;
+}
+
+/* Payment summary section */
+.payment-summary {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 500;
+}
+
+.payment-summary strong {
+    color: #e44d26; /* Prominent red for total amount */
+    font-size: 22px;
+    font-weight: 700;
+    margin-left: 10px;
+}
+
+/* Table container for responsiveness */
+.table-container {
+    overflow-x: auto; /* Allows horizontal scrolling for tables on small screens */
+    border-radius: 8px; /* Apply border-radius to the container */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03); /* Lighter shadow for table */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Collapse borders */
+    background-color: white;
+    min-width: 600px; /* Minimum width to prevent squishing on very small screens */
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee; /* Light border between rows */
+}
+
+th {
+    background-color: #f8f8f8; /* Light background for table headers */
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+tr:last-child td {
+    border-bottom: none; /* No border for the last row */
+}
+
+/* Status badge styling */
+.status-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px; /* Pill shape */
+    font-size: 13px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+}
+
+.status-badge.unpaid {
+    background-color: #e44d26; /* Red for unpaid status */
+}
+
+/* Action button styling */
+.action-button {
+    background-color: #1a3a6b; /* Dark blue button */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: #122a4b; /* Darker blue on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 80px; /* Collapse sidebar on smaller screens */
+        padding-top: 10px;
+    }
+
+    .sidebar-header {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .sidebar-menu a {
+        padding: 10px 5px;
+        justify-content: center; /* Center icons */
+    }
+
+    .sidebar-menu a i {
+        margin-right: 0; /* Remove margin for icons */
+    }
+
+    .sidebar-menu a span {
+        display: none; /* Hide text in collapsed sidebar */
+    }
+
+    .main-content {
+        margin-left: 80px; /* Adjust offset for collapsed sidebar */
+        width: calc(100% - 80px);
+        padding: 15px;
+    }
+
+    .header {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .select-apartment {
+        width: 100%; /* Full width on small screens */
+    }
+
+    .tab-navigation {
+        flex-direction: column; /* Stack tabs vertically */
+        align-items: flex-start;
+    }
+
+    .tab-button {
+        margin-right: 0;
+        width: 100%; /* Full width for tab buttons */
+        justify-content: flex-start;
+    }
+
+    .payment-summary {
+        font-size: 16px;
+    }
+
+    .payment-summary strong {
+        font-size: 20px;
+    }
+
+    th, td {
+        padding: 10px; /* Reduce padding in table cells */
+        font-size: 14px;
+    }
+
+    .status-badge {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    .action-button {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 60px; /* Even smaller sidebar */
+    }
+
+    .main-content {
+        margin-left: 60px;
+        width: calc(100% - 60px);
+        padding: 10px;
+    }
+
+    .header {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .select-apartment {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    .tab-button {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    .payment-summary {
+        font-size: 14px;
+    }
+
+    .payment-summary strong {
+        font-size: 18px;
+    }
+
+    th, td {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .action-button {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+}
