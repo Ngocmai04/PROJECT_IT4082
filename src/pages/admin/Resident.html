@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Căn hộ</title>
+  <title>DANH SÁCH CƯ DÂN</title>
   <link rel="stylesheet" href="/src/styles/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <script src="https://kit.fontawesome.com/82fa5b87b9.js" crossorigin="anonymous"></script>
@@ -48,31 +48,31 @@
             <div class="form-content">
                 <div class="form-header">
                     <span id="add-resident-closeForm" class="closeForm">&times;</span>
-                    <h3>Add New Resident</h3>
+                    <h3>THÊM CƯ DÂN</h3>
                 </div>
 
                 <div>
-                    <label class="form-label" for="resident-fullname">Full name:</label>
+                    <label class="form-label" for="resident-fullname">HỌ VÀ TÊN:</label>
                     <input class="form-input" type="text" id="resident-fullname" required><br>
                 </div>
 
                 <div>
-                    <label class="form-label" for="resident-apartment-id">Apartment:</label>
+                    <label class="form-label" for="resident-apartment-id">CĂN HỘ:</label>
                     <input class="form-input" type="text" id="resident-apartment-id" required><br>
                 </div>
 
                 <div>
-                    <label class="form-label" for="resident-bd">Birthday:</label>
+                    <label class="form-label" for="resident-bd">NGÀY SINH:</label>
                     <input class="form-input" type="date" id="resident-bd" required><br>
                 </div>
 
                 <div>
-                    <label class="form-label" for="resident-phone">Phone:</label>
+                    <label class="form-label" for="resident-phone">SỐ ĐIỆN THOẠI :</label>
                     <input class="form-input" type="text" id="resident-phone" required><br>
                 </div>
 
                 <div>
-                    <label class="form-label" for="resident-email">Email:</label>
+                    <label class="form-label" for="resident-email">CMND/CCCD:</label>
                     <input class="form-input" type="text" id="resident-email" required><br>
                 </div>
 
@@ -88,7 +88,7 @@
             <div class="form-content">
                 <div class="form-header">
                     <span id="edit-resident-closeForm" class="closeForm">&times;</span>
-                    <h3>Edit Resident</h3>
+                    <h3>Chỉnh sửa  </h3>
                 </div>
 
                 <div>
@@ -97,27 +97,27 @@
                 </div>
 
                 <div>
-                    <label class="form-label" for="edit-resident-fullname">Full name:</label>
+                    <label class="form-label" for="edit-resident-fullname">HỌ VÀ TÊN:</label>
                     <input class="form-input" type="text" id="edit-resident-fullname" required><br>
                 </div>
 
                 <div>
-                    <label class="form-label" for="edit-resident-apartment-id">Apartment:</label>
+                    <label class="form-label" for="edit-resident-apartment-id">CĂN HỘ:</label>
                     <input class="form-input" type="text" id="edit-resident-apartment-id" required><br>
                 </div>
 
                 <div>
-                    <label class="form-label" for="edit-resident-bd">Birthday:</label>
+                    <label class="form-label" for="edit-resident-bd">NGÀY SINH:</label>
                     <input class="form-input" type="date" id="edit-resident-bd" required><br>
                 </div>
 
                 <div>
-                    <label class="form-label" for="edit-resident-phone">Phone:</label>
+                    <label class="form-label" for="edit-resident-phone">SỐ ĐIỆN THOẠI :</label>
                     <input class="form-input" type="text" id="edit-resident-phone" required><br>
                 </div>
 
                 <div>
-                    <label class="form-label" for="edit-resident-email">Email:</label>
+                    <label class="form-label" for="edit-resident-email">CMND/CCCD:</label>
                     <input class="form-input" type="text" id="edit-resident-email" required><br>
                 </div>
 
@@ -129,20 +129,20 @@
         </div>
 
         <div class="section-content">
-            <h2>Residents List</h2>
+            <h2>DANH SÁCH CƯ DÂN </h2>
 
-            <button id="add-resident-btn" class="add-btn">Add Resident</button>
+            <button id="add-resident-btn" class="add-btn">THÊM CƯ DÂN </button>
 
             <table id="resident-table" class="data-table">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Fullname</th>
-                        <th>Apartment</th>
-                        <th>Birthday</th>
-                        <th>Phone Number</th>
-                        <th>Email</th>
-                        <th style="text-align: center;">Actions</th>
+                        <th>HỌ VÀ TÊN</th>
+                        <th>CĂN HỘ</th>
+                        <th>NGÀY SINH</th>
+                        <th>SỐ ĐIỆN THOẠI</th>
+                        <th>CMND/CCCD</th>
+                        <th style="text-align: center;">Thao tác</th>
                     </tr>
                 </thead>
                 <tbody id="resident-table-body">
