@@ -34,19 +34,22 @@
         <i class="fas fa-times" id="cancel"></i>
     </label>
 
-    <div class="sidebar">
-        <header>Dashboard</header>
-        <ul>
-            <li><a href="/src/index.html"><i class="fa-solid fa-house" style="color: #ffffff;"></i></i>Home</a></li>
-            <li><a href="/src/pages/apartments.html"><i class="fa-solid fa-building"
-                        style="color: #ffffff;"></i>Apartments</a></li>
-            <li><a href="/src/pages/residents.html"><i class="fa-solid fa-people-group" style="color: #ffffff;"></i>Residents</a></li>
-            <li><a href="#"><i class="fa-solid fa-car" style="color: #ffffff;"></i>Vehicles</a></li>
-            <li><a href="/src/pages/log.html"><i class="fa-solid fa-clock-rotate-left" style="color: #ffffff;"></i>Log</a></li>
-            <li><a href="/src/pages/service_fee.html"><i class="fas fa-sliders-h"></i>Services</a></li>
-            <li><a href="#"><i class="far fa-envelope"></i>Contact</a></li>
-        </ul>
-    </div>
+  <div class="sidebar">
+    <header>BLUE MOON </header>
+    <ul>
+      <li><a href="/src/index.html"><i class="fa-solid fa-house" style="color: #ffffff;"></i></i>Trang chủ</a></li>
+      <li><a href="apartments.html"><i class="fa-solid fa-building" style="color: #ffffff;"></i>Căn hộ</a></li>
+      <li><a href="Resident.html"><i class="fas fa-user" style="color: #ffffff;"></i>Cư dân</a></li>
+      <li><a href="Household.html"><i class="fa-solid fa-people-group" style="color: #ffffff;"></i>Hộ gia đình</a></li>
+      <li><a href="vehicles.html"><i class="fa-solid fa-car" style="color: #ffffff;"></i>Vehicles</a></li>
+      <!-- <li><a href="/src/pages/log.html"><i class="fa-solid fa-clock-rotate-left" style="color: #ffffff;"></i>Log</a></li> -->
+      <li><a href="Service.html"><i class="fas fa-hand-holding-usd"></i>Dịch vụ cư dân</a></li>
+      <li><a href="#"><i class="far fa-envelope"></i>Contact</a></li>
+      <li><a href="Account Management.html"><i class="fas fa-user-circle"></i>Quản lý tài khoản</a></li>
+      <li><a href="Settings.html"><i class="fas fa-cog"></i>Cài đặt </a></li>
+      <li><a href="#"><i class="fas fa-sign-out-alt"></i>Đăng xuất</a></li>
+    </ul>
+  </div>
 
     <section>
         <!-- Adding Form -->
@@ -54,34 +57,34 @@
             <div class="form-content">
                 <div class="form-header">
                     <span id="add-vehicle-closeForm" class="closeForm">&times;</span>
-                    <h3>Add New Resident</h3>
+                    <h3>Thêm phương tiện mới</h3>
                 </div>
 
                 <div>
-                    <label class="form-label" for="license-plate">Vehicle Plate:</label>
+                    <label class="form-label" for="license-plate">Biển số xe:</label>
                     <input class="form-input" type="text" id="license-plate" required><br>
                 </div>
 
                 <div>
-                    <label class="form-label" for="vehicle-apartment-id">Apartment:</label>
+                    <label class="form-label" for="vehicle-apartment-id">Căn hộ:</label>
                     <input class="form-input" type="text" id="vehicle-apartment-id" required><br>
                 </div>
 
                 <div>
-                    <label class="form-label" for="vehicle-type">Type:</label>
+                    <label class="form-label" for="vehicle-type">Loại xe:</label>
                     <select id="vehicle-type" class="form-select" required>
-                        <option value="car">Car</option>
-                        <option value="motorbike">Motorbike</option>
-                        <option value="electric">Electric</option>
-                        <option value="bicycle">Bicycle</option>
+                        <option value="car">Xe hơi</option>
+                        <option value="motorbike">Xe máy</option>
+                        <option value="electric">Xe điện</option>
+                        <option value="bicycle">Xe đạp</option>
                     </select><br>
                 </div>
 
                 <div>
-                    <label class="form-label" for="vehicle-status">Status:</label>
+                    <label class="form-label" for="vehicle-status">Trạng thái:</label>
                     <select id="vehicle-status" class="form-select" required>
-                        <option value="in">In</option>
-                        <option value="out">Out</option>
+                        <option value="in">Trong bãi</option>
+                        <option value="out">Ngoài bãi</option>
                     </select><br>
                 </div>
 
@@ -97,34 +100,34 @@
             <div class="form-content">
                 <div class="form-header">
                     <span id="edit-vehicle-closeForm" class="closeForm">&times;</span>
-                    <h3>Edit Vehicle</h3>
+                    <h3>Chỉnh sửa phương tiện</h3>
                 </div>
 
                 <div>
-                    <label class="form-label" for="edit-license-plate">Vehicle Plate:</label>
+                    <label class="form-label" for="edit-license-plate">Biển số xe:</label>
                     <input class="form-input" type="text" id="edit-license-plate" required><br>
                 </div>
 
                 <div>
-                    <label class="form-label" for="edit-vehicle-apartment-id">Apartment:</label>
+                    <label class="form-label" for="edit-vehicle-apartment-id">Căn hộ:</label>
                     <input class="form-input" type="text" id="edit-vehicle-apartment-id" required><br>
                 </div>
 
                 <div>
-                    <label class="form-label" for="edit-vehicle-type">Type:</label>
+                    <label class="form-label" for="edit-vehicle-type">Loại xe:</label>
                     <select id="edit-vehicle-type" class="form-select" required>
-                        <option value="car">Car</option>
-                        <option value="motorbike">Motorbike</option>
-                        <option value="electric">Electric</option>
-                        <option value="bicycle">Bicycle</option>
+                        <option value="car">Xe hơi</option>
+                        <option value="motorbike">Xe máy</option>
+                        <option value="electric">Xe điện</option>
+                        <option value="bicycle">Xe đạp</option>
                     </select><br>
                 </div>
 
                 <div>
-                    <label class="form-label" for="edit-vehicle-status">Status:</label>
+                    <label class="form-label" for="edit-vehicle-status">Trạng thái:</label>
                     <select id="edit-vehicle-status" class="form-select" required>
-                        <option value="in">In</option>
-                        <option value="out">Out</option>
+                        <option value="in">Trong bãi</option>
+                        <option value="out">Ngoài bãi</option>
                     </select><br>
                 </div>
 
@@ -153,19 +156,19 @@
                     
                 </tbody>
             </table> -->
-            
-            <h2>Vehicles List</h2>
 
-            <button id="add-vehicle-btn" class="add-btn">Add Vehicles</button>
+            <h2>Danh sách phương tiện</h2>
+
+            <button id="add-vehicle-btn" class="add-btn">Thêm phương tiện</button>
 
             <table id="vehicles-table" class="data-table">
                 <thead>
                     <tr>
-                        <th>Vehicle Plate</th>
-                        <th>Apartment</th>
-                        <th>Type</th>
-                        <th>Status</th>
-                        <th style="text-align: center;">Actions</th>
+                        <th>Biển số xe</th>
+                        <th>Căn hộ</th>
+                        <th>Loại xe</th>
+                        <th>Trạng thái</th>
+                        <th style="text-align: center;">Action</th>
                     </tr>
                 </thead>
                 <tbody id="vehicles-table-body">

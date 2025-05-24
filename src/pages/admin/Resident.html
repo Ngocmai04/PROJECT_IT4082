@@ -29,12 +29,12 @@
     <header>BLUE MOON </header>
     <ul>
       <li><a href="/src/index.html"><i class="fa-solid fa-house" style="color: #ffffff;"></i></i>Trang chủ</a></li>
-      <li><a href="/admin/apartments.html"><i class="fa-solid fa-building" style="color: #ffffff;"></i>Căn hộ</a></li>
+      <li><a href="apartments.html"><i class="fa-solid fa-building" style="color: #ffffff;"></i>Căn hộ</a></li>
       <li><a href="Resident.html"><i class="fas fa-user" style="color: #ffffff;"></i>Cư dân</a></li>
       <li><a href="Household.html"><i class="fa-solid fa-people-group" style="color: #ffffff;"></i>Hộ gia đình</a></li>
       <!-- <li><a href="/src/pages/vehicles.html"><i class="fa-solid fa-car" style="color: #ffffff;"></i>Vehicles</a></li> -->
       <!-- <li><a href="/src/pages/log.html"><i class="fa-solid fa-clock-rotate-left" style="color: #ffffff;"></i>Log</a></li> -->
-      <li><a href="\Service.html"><i class="fas fa-hand-holding-usd"></i>Dịch vụ cư dân</a></li>
+      <li><a href="Service.html"><i class="fas fa-hand-holding-usd"></i>Dịch vụ cư dân</a></li>
       <li><a href="#"><i class="far fa-envelope"></i>Contact</a></li>
       <li><a href="Account Management.html"><i class="fas fa-user-circle"></i>Quản lý tài khoản</a></li>
       <li><a href="Settings.html"><i class="fas fa-cog"></i>Cài đặt </a></li>
@@ -52,7 +52,7 @@
                 </div>
 
                 <div>
-                    <label class="form-label" for="resident-fullname">HỌ VÀ TÊN:</label>
+                    <label class="form-label" for="resident-fullname">HỌ TÊN:</label>
                     <input class="form-input" type="text" id="resident-fullname" required><br>
                 </div>
 
@@ -67,15 +67,45 @@
                 </div>
 
                 <div>
-                    <label class="form-label" for="resident-phone">SỐ ĐIỆN THOẠI :</label>
-                    <input class="form-input" type="text" id="resident-phone" required><br>
+                    <label class="form-label" for="gioitinh">GIỚI TÍNH:</label>
+                    <select class="form-input" id="gioitinh" required>
+                        <option value="" disabled selected>Chọn giới tính</option>
+                        <option value="Nam">Nam</option>
+                        <option value="Nữ">Nữ</option>
+                        <option value="Khác">Khác</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="form-label" for="dantoc">DÂN TỘC:</label>
+                    <input class="form-input" type="text" id="dantoc" required><br> 
                 </div>
 
                 <div>
-                    <label class="form-label" for="resident-email">CMND/CCCD:</label>
-                    <input class="form-input" type="text" id="resident-email" required><br>
+                    <label class="form-label" for="resident-cccd">CMND/CCCD:</label>
+                    <input class="form-input" type="text" id="resident-cccd" required><br>
                 </div>
-
+                <div>
+                    <label class="form-label"for='nghenghiep'>NGHỀ NGHIỆP:</label>
+                    <input class="form-input" type="text" id="nghenghiep" required><br>
+                </div>
+                <div>
+                    <label class="form-label"for="vaitro">VAI TRÒ:</label>
+                    <select class="form-input" id="vaitro" required>
+                        <option value="" disabled selected>Chọn vai trò</option>
+                        <option value="Chủ hộ">Chủ hộ</option>
+                        <option value="Thành viên">Thành viên</option>
+                    </select>
+                </div>
+                <div style="display: flex; justify-content: space-between; width: 200px; align-items: center;">
+                <div>
+                    <input type="radio" id="temporary-resident" name="status" value="Tạm trú" required>
+                    <label for="temporary-resident">Tạm trú</label>
+                </div>
+                <div>
+                    <input type="radio" id="temporary-absence" name="status" value="Tạm vắng">
+                    <label for="temporary-absence">Tạm vắng</label>
+                </div>
+            </div>
                 <div>
                     <button id="add-resident-submitForm" class="submitForm">Submit</button>
                     <button id="add-resident-cancelForm" class="cancelForm">Cancel</button>
@@ -97,7 +127,7 @@
                 </div>
 
                 <div>
-                    <label class="form-label" for="edit-resident-fullname">HỌ VÀ TÊN:</label>
+                    <label class="form-label" for="edit-resident-fullname">HỌ TÊN:</label>
                     <input class="form-input" type="text" id="edit-resident-fullname" required><br>
                 </div>
 
@@ -110,15 +140,44 @@
                     <label class="form-label" for="edit-resident-bd">NGÀY SINH:</label>
                     <input class="form-input" type="date" id="edit-resident-bd" required><br>
                 </div>
-
                 <div>
-                    <label class="form-label" for="edit-resident-phone">SỐ ĐIỆN THOẠI :</label>
-                    <input class="form-input" type="text" id="edit-resident-phone" required><br>
+                    <label class="form-label" for="edit-gioitinh">GIỚI TÍNH:</label>
+                    <select class="form-input" id="edit-gioitinh" required>
+                        <option value="" disabled selected>Chọn giới tính</option>
+                        <option value="Nam">Nam</option>
+                        <option value="Nữ">Nữ</option>
+                        <option value="Khác">Khác</option>      
+                    </select>
                 </div>
+                <div>
+                    <label class="form-label" for="edit-dantoc">DÂN TỘC:</label>
+                    <input class="form-input" type="text" id="edit-dantoc" required><br>
+                </div>
+                <div>
+                    <label class="form-label" for="edit-nghenghiep">NGHỀ NGHIỆP:</label>
+                    <input class="form-input" type="text" id="edit-nghenghiep" required><br>
+                </div>
+                <div>
+                    <label class="form-label" for="edit-vaitro">VAI TRÒ:</label>
+                    <select class="form-input" id="edit-vaitro" required>
+                        <option value="" disabled selected>Chọn vai trò</option>
+                        <option value="Chủ hộ">Chủ hộ</option>
+                        <option value="Thành viên">Thành viên</option>
+                    </select>
+                </div>  
 
                 <div>
                     <label class="form-label" for="edit-resident-email">CMND/CCCD:</label>
                     <input class="form-input" type="text" id="edit-resident-email" required><br>
+                </div>
+                <!-- <div style="display: flex; justify-content: space-between; width: 200px; align-items: center;"> -->
+                <div>
+                    <input type="radio" id="temporary-resident" name="status" value="Tạm trú" required>
+                    <label for="temporary-resident">Tạm trú</label>
+                </div>
+                <div>
+                    <input type="radio" id="temporary-absence" name="status" value="Tạm vắng">
+                    <label for="temporary-absence">Tạm vắng</label>
                 </div>
 
                 <div>
@@ -137,11 +196,15 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>HỌ VÀ TÊN</th>
+                        <th>HỌ TÊN</th>
                         <th>CĂN HỘ</th>
                         <th>NGÀY SINH</th>
-                        <th>SỐ ĐIỆN THOẠI</th>
+                        <th>GIỚI TÍNH</th>
+                        <th>DÂN TỘC</th>
                         <th>CMND/CCCD</th>
+                        <th>NGHỀ NGHIỆP</th>
+                        <th>VAI TRÒ</th>
+                        <th>TRẠNG THÁI</th>
                         <th style="text-align: center;">Thao tác</th>
                     </tr>
                 </thead>
