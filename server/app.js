@@ -459,6 +459,7 @@ app.put("/api/pay-service-fee/:id", async (req, res) => {
     console.error("SQL Error:", error);
     res.status(500).json({ message: "Database error: " + error.sqlMessage });
   }
+
 });
 
 // Serve static files from the 'src' directory
@@ -479,3 +480,4 @@ app.get("/", (req, res) => {
 app.listen(3000, () => {
   console.log("Server is running on http://localhost:3000");
 });
+
